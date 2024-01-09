@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airlineapp-deploy
+  labels:
+    app: airlineapp-deploy
+  namespace: namespace-workflow-1704800646888
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airlineapp-deploy
+  template:
+    metadata:
+      labels:
+        app: airlineapp-deploy
+    spec:
+      containers:
+        - name: airlineapp-deploy
+          image: acrworkflow1704800646888.azurecr.io/image-workflow-1704800646888:latest
+          ports:
+            - containerPort: 5000
