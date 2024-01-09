@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: airlineapp-deploy
+  namespace: namespace-workflow-1704800646888
+spec:
+  type: LoadBalancer
+  selector:
+    app: airlineapp-deploy
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
